@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+    <style>
+        body { font-family: Arial; margin: 0; background: #f5f5f5; }
+        .navbar {
+            background: #333;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+        }
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover { background: #575757; }
+        .box {
+            margin: 60px auto;
+            width: 350px;
+            padding: 25px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+        button {
+            padding: 14px 20px;
+            width: 90%;
+            border: none;
+            margin-top: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 6px;
+        }
+        .upi-btn { background: #28a745; color: white; }
+        .rzp-btn { background: #007bff; color: white; }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="payment.html">Payment</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<div class="box">
+    <h2>Make Payment</h2>
+    <p><b>Choose your payment method</b></p>
+
+    <!-- UPI PAYMENT BUTTON -->
+    <button class="upi-btn" onclick="payUPI()">Pay via UPI</button>
+
+    <!-- RAZORPAY.ME BUTTON -->
+    <button class="rzp-btn" onclick="window.location.href='https://razorpay.me/@mdharoonrashid'">
+        Pay via Razorpay Link
+    </button>
+</div>
+
+<script>
+function payUPI() {
+    var upiID = "6205228690@ybl";
+    var name = "Haroon Digital Services";
+    var amount = "100";  // Change amount as needed
+
+    var upiURL = "upi://pay?pa=" + encodeURIComponent(upiID) +
+                 "&pn=" + encodeURIComponent(name) +
+                 "&am=" + encodeURIComponent(amount) +
+                 "&cu=INR";
+
+    window.location.href = upiURL;
+}
+</script>
+
+</body>
+</html>
